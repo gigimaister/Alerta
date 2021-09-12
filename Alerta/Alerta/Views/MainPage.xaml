@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+             x:Class="Alerta.MainPage"  NavigationPage.HasNavigationBar="False">
+
+    <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
+                                         DrawerWidth ="210" Position="Right">
+        <navigationdrawer:SfNavigationDrawer.ContentView>
+            <Grid x:Name="mainContentView" 
+                  BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackLayout BackgroundColor="#DF6E57" 
+                               Orientation="Horizontal">
+                    <Button x:Name="hamburgerButton"                            
+                            HeightRequest="10" 
+                            WidthRequest="10" 
+                            HorizontalOptions="EndAndExpand" 
+                            FontSize="20" 
+                            BackgroundColor="#DF6E57" 
+                            Margin="25"
+                            Clicked="hamburgerButton_Clicked"/>
+                    
+                </StackLayout>
+                <Image Grid.Row="1" Source="AlertaLogo.png" Opacity="0.5"
+                       HeightRequest="120" VerticalOptions="StartAndExpand"                  
+                    />
+                <Label Grid.Row="1" 
+                      x:Name="contentLabel" 
+                      VerticalOptions="Center" 
+                      HorizontalOptions="Center" 
+                      Text="רשימה של 10 אזעקות אחרונות" 
+                      FontSize="14" 
+                      TextColor="Black"/>
+            </Grid>
+        </navigationdrawer:SfNavigationDrawer.ContentView>
+        <navigationdrawer:SfNavigationDrawer.DrawerContentView>
+            <Grid >
+                <ListView x:Name="listView" 
+                          ItemSelected="listView_ItemSelected" 
+                          SeparatorColor="Transparent" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout HeightRequest="40">
+                                    <Label Margin="10,7,0,0" 
+                                           Text="{Binding}" 
+                                           TextColor="Black" 
+                                           FontSize="19"
+                                           HorizontalTextAlignment="Center"
+                                           FontAttributes="Bold"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </navigationdrawer:SfNavigationDrawer.DrawerContentView>
+        <StackLayout>
+            
+        </StackLayout>
+    </navigationdrawer:SfNavigationDrawer>
+   
+</ContentPage>
