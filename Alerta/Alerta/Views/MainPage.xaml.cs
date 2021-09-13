@@ -27,13 +27,11 @@ namespace Alerta
             navigationDrawer.ToggleDrawer();
         }
 
-
-        private async void ListView_ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        //On Menu Item Clicked
+        private void ListView_ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
-            if(e.SelectedItemIndex != 0)
-            {
-                await Navigation.PushAsync(new SettingsView());
-            }
+            Application.Current.MainPage = new NavigationPage(new SettingsPage());
+
             navigationDrawer.ToggleDrawer();
         }
     }

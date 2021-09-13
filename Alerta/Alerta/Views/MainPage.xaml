@@ -16,10 +16,9 @@
                 <StackLayout BackgroundColor="#DF6E57" 
                                Orientation="Horizontal">
                     <Button x:Name="hamburgerButton"                            
-                            HeightRequest="10" 
-                            WidthRequest="10" 
-                            HorizontalOptions="EndAndExpand" 
-                            FontSize="20" 
+                            HeightRequest="25" 
+                            WidthRequest="25" 
+                            HorizontalOptions="EndAndExpand"                              
                             BackgroundColor="#DF6E57" 
                             Margin="25"
                             Clicked="HamburgerButton_Clicked"/>
