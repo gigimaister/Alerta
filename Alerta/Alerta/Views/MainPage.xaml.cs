@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Alerta.Views;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Alerta
@@ -20,15 +22,18 @@ namespace Alerta
         }
 
         //Menu Clicked
-        void hamburgerButton_Clicked(object sender, EventArgs e)
+        void HamburgerButton_Clicked(object sender, EventArgs e)
         {
             navigationDrawer.ToggleDrawer();
         }
 
 
-        private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListView_ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
-            
+            if(e.SelectedItemIndex != 0)
+            {
+                await Navigation.PushAsync(new SettingsView());
+            }
             navigationDrawer.ToggleDrawer();
         }
     }

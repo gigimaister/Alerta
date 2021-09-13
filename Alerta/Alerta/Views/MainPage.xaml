@@ -22,7 +22,7 @@
                             FontSize="20" 
                             BackgroundColor="#DF6E57" 
                             Margin="25"
-                            Clicked="hamburgerButton_Clicked"/>
+                            Clicked="HamburgerButton_Clicked"/>
                     
                 </StackLayout>
                 <Image Grid.Row="1" Source="AlertaLogo.png" Opacity="0.5"
@@ -40,7 +40,7 @@
         <navigationdrawer:SfNavigationDrawer.DrawerContentView>
             <Grid >
                 <ListView x:Name="listView" 
-                          ItemSelected="listView_ItemSelected" 
+                          ItemSelected="ListView_ItemSelectedAsync" 
                           SeparatorColor="Transparent" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
