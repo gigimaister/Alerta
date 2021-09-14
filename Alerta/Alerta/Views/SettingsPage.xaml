@@ -15,14 +15,16 @@
         <ControlTemplate>
             <StackLayout Spacing="0">
                 <!--  Title View  -->
-                <controls:TitleView Title="Settings">
+                <controls:TitleView Title="הגדרות">
                     <controls:TitleView.LeadingView>
                         <buttons:SfButton
                             x:Name="backButton"
                             Command="{TemplateBinding BindingContext.BackButtonCommand}"
                             CommandParameter="{x:Reference backButton}"
                             Style="{StaticResource IconButtonStyle}"
-                            Text="{StaticResource Back}" />
+                            Text="{StaticResource Back}" 
+                            HorizontalOptions="Start"
+                            />
                     </controls:TitleView.LeadingView>
                 </controls:TitleView>
                 <ContentPresenter />
@@ -64,7 +66,7 @@
                     <!--  Edit profile icon  -->
                     <Label
                         Grid.Column="0"
-                        Margin="16,0,0,0"
+                        Margin="16,0,15,0"
                         Style="{StaticResource IconLabelStyle}"
                         Text="{StaticResource Account}" 
                         HorizontalOptions="Start"/>
@@ -72,15 +74,15 @@
                     <Label
                         Grid.Column="1"
                         Margin="16,12"
-                        FontFamily="Montserrat-Medium"
-                        HorizontalOptions="End"
+                        FontFamily="Montserrat-Medium"                       
                         Style="{StaticResource TitleLabelStyle}"
                         Text="בחירת איזור"
-                        VerticalOptions="Center" />
+                        HorizontalOptions="Start"
+                         />
                     <!--  Navigation icon  -->
                     <Label
                         Grid.Column="2"
-                        Margin="16,8"
+                        Margin="18,8"
                         HorizontalOptions="StartAndExpand"
                         Style="{StaticResource IconLabelStyle}"
                         Text="{StaticResource Next}" />
@@ -88,7 +90,7 @@
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
                 <!--  Grid for Change password label and navigation bar icon  -->
-                <controls:TapAnimationGrid
+                <controls:TapAnimationGrid IsVisible="false"
                     BackgroundColor="{DynamicResource Gray-Bg}"
                     ColumnDefinitions="Auto, *, Auto"
                     ColumnSpacing="0"
@@ -109,7 +111,7 @@
                         FontFamily="Montserrat-Medium"
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
-                        Text="Change Password"
+                        Text="שינוי סיסמא"
                         VerticalOptions="Center" />
                     <!--  Navigation icon  -->
                     <Label
@@ -121,7 +123,7 @@
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
                 <!--  Grid for Account link label and navigation bar icon  -->
-                <controls:TapAnimationGrid
+                <controls:TapAnimationGrid IsVisible="false"
                     BackgroundColor="{DynamicResource Gray-Bg}"
                     ColumnDefinitions="Auto, *, Auto"
                     ColumnSpacing="0"
@@ -156,13 +158,13 @@
 
                 <!--  Header lable for notifications  -->
                 <Label
-                    Margin="16,40,0,16"
+                    Margin="16,40,15,16"
                     FontFamily="Montserrat-SemiBold"
                     FontSize="12"
                     HorizontalOptions="FillAndExpand"
                     LineHeight="{OnPlatform Default=-1,
                                             Android=1.25}"
-                    Text="NOTIFICATIONS"
+                    Text="צלילים"                   
                     TextColor="{DynamicResource Gray-800}"
                     VerticalOptions="Center"
                     VerticalTextAlignment="Center" />
@@ -187,7 +189,7 @@
                         FontFamily="Montserrat-Medium"
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
-                        Text="Notifications"
+                        Text="השמעת צליל"
                         VerticalOptions="Center" />
                     <!--  Notifications switch  -->
                     <buttons:SfSwitch
@@ -232,27 +234,27 @@
                 </Grid>
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
-                <!--  Grid for Email notifications and switch  -->
+                <!--  Grid for Location notifications and switch  -->
                 <Grid
                     BackgroundColor="{DynamicResource Gray-Bg}"
                     ColumnDefinitions="Auto, *, Auto"
                     ColumnSpacing="0"
                     RowSpacing="0">
 
-                    <!--  Email notification icon  -->
+                    <!--  Location notification icon  -->
                     <Label
                         Grid.Column="0"
                         Margin="16,0,0,0"
                         Style="{StaticResource IconLabelStyle}"
                         Text="{StaticResource Account}" />
-                    <!--  Email notification label  -->
+                    <!--  Location notification label  -->
                     <Label
                         Grid.Column="1"
                         Margin="16,12"
                         FontFamily="Montserrat-Medium"
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
-                        Text="Email Notifications"
+                        Text="התראות לפי מיקום"
                         VerticalOptions="Center" />
                     <!--  Email notification switch  -->
                     <buttons:SfSwitch
@@ -300,13 +302,13 @@
 
                 <!--  Header label for Support setting  -->
                 <Label
-                    Margin="16,40,0,16"
+                    Margin="16,40,15,16"
                     FontFamily="Montserrat-SemiBold"
                     FontSize="12"
                     HorizontalOptions="FillAndExpand"
                     LineHeight="{OnPlatform Default=-1,
                                             Android=1.25}"
-                    Text="SUPPORT"
+                    Text="תמיכה"
                     TextColor="{DynamicResource Gray-800}"
                     VerticalOptions="Center"
                     VerticalTextAlignment="Center" />
@@ -333,7 +335,7 @@
                         FontFamily="Montserrat-Medium"
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
-                        Text="Help"
+                        Text="אודות"
                         VerticalOptions="Center" />
                     <!--  Navigation icon  -->
                     <Label
@@ -366,7 +368,7 @@
                         FontFamily="Montserrat-Medium"
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
-                        Text="Terms of Service"
+                        Text="תנאי שימוש"
                         VerticalOptions="Center" />
                     <!--  Navigation icon  -->
                     <Label
@@ -378,7 +380,7 @@
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
                 <!--  Grid for Privacy policy label and navigation bar icon  -->
-                <controls:TapAnimationGrid
+                <controls:TapAnimationGrid IsVisible="false"
                     BackgroundColor="{DynamicResource Gray-Bg}"
                     ColumnDefinitions="Auto, *, Auto"
                     ColumnSpacing="0"
@@ -411,7 +413,7 @@
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
                 <!--  Grid for FAQs label and navigation bar icon  -->
-                <controls:TapAnimationGrid
+                <controls:TapAnimationGrid IsVisible="false"
                     BackgroundColor="{DynamicResource Gray-Bg}"
                     ColumnDefinitions="Auto, *, Auto"
                     ColumnSpacing="0"
@@ -445,7 +447,7 @@
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
                 <!--  Logout button  -->
-                <buttons:SfButton
+                <buttons:SfButton IsVisible="false"
                     Margin="0,24,0,32"
                     Command="{Binding LogoutCommand}"
                     Style="{StaticResource GradientButtonStyle}"
