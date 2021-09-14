@@ -23,7 +23,7 @@
                             CommandParameter="{x:Reference backButton}"
                             Style="{StaticResource IconButtonStyle}"
                             Text="{StaticResource Back}" 
-                            HorizontalOptions="Start"
+                            HorizontalOptions="Start"                            
                             />
                     </controls:TitleView.LeadingView>
                 </controls:TitleView>
@@ -85,7 +85,8 @@
                         Margin="18,8"
                         HorizontalOptions="StartAndExpand"
                         Style="{StaticResource IconLabelStyle}"
-                        Text="{StaticResource Next}" />
+                        Text="{StaticResource Next}" 
+                        Rotation="180"/>
                 </controls:TapAnimationGrid>
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
@@ -179,7 +180,7 @@
                     <!--  Notifications icon  -->
                     <Label
                         Grid.Column="0"
-                        Margin="16,0,0,0"
+                        Margin="16,0,15,0"
                         Style="{StaticResource IconLabelStyle}"
                         Text="{StaticResource Notification}" />
                     <!--  Notification label  -->
@@ -244,7 +245,7 @@
                     <!--  Location notification icon  -->
                     <Label
                         Grid.Column="0"
-                        Margin="16,0,0,0"
+                        Margin="16,0,15,0"
                         Style="{StaticResource IconLabelStyle}"
                         Text="{StaticResource Account}" />
                     <!--  Location notification label  -->
@@ -325,7 +326,7 @@
                     <!--  help icon  -->
                     <Label
                         Grid.Column="0"
-                        Margin="16,0,0,0"
+                        Margin="16,0,15,0"
                         Style="{StaticResource IconLabelStyle}"
                         Text="{StaticResource Help}" />
                     <!--  Help text label  -->
@@ -342,7 +343,8 @@
                         Grid.Column="2"
                         Margin="16,8"
                         Style="{StaticResource IconLabelStyle}"
-                        Text="{StaticResource Next}" />
+                        Text="{StaticResource Next}" 
+                        Rotation="180"/>
                 </controls:TapAnimationGrid>
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
@@ -358,7 +360,7 @@
                     <!--  Terms of service icon  -->
                     <Label
                         Grid.Column="0"
-                        Margin="16,0,0,0"
+                        Margin="16,0,15,0"
                         Style="{StaticResource IconLabelStyle}"
                         Text="{StaticResource Account}" />
                     <!--  Terms of service label  -->
@@ -375,7 +377,8 @@
                         Grid.Column="2"
                         Margin="16,8"
                         Style="{StaticResource IconLabelStyle}"
-                        Text="{StaticResource Next}" />
+                        Text="{StaticResource Next}" 
+                        Rotation="180"/>
                 </controls:TapAnimationGrid>
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
