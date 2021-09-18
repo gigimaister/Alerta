@@ -1,4 +1,5 @@
-﻿using Alerta.Views;
+﻿using Alerta.Models;
+using Alerta.Views;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -28,11 +29,14 @@ namespace Alerta
         }
 
         //On Menu Item Clicked
-        private void ListView_ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        private async void ListView_ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new SettingsPage());
-
-            navigationDrawer.ToggleDrawer();
+            if (e.SelectedItemIndex == (int)MainMenu.settings)
+            {              
+                await Application.Current.MainPage.Navigation.PushAsync(new SettingsPage());
+                navigationDrawer.ToggleDrawer();
+                listView.SelectedItem = null;
+            }         
         }
     }
 }
