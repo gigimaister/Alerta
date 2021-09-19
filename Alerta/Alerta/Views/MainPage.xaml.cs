@@ -1,14 +1,15 @@
-﻿using Alerta.Models;
+﻿using Alerta.Http;
+using Alerta.Models;
 using Alerta.Views;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Alerta
 {
     public partial class MainPage : ContentPage
     {
+        
         public MainPage()
         {
             InitializeComponent();
@@ -20,6 +21,14 @@ namespace Alerta
             list.Add("הגדרות");
             
             listView.ItemsSource = list;
+            
+            LoadDataAsync();
+          
+        }
+        async void  LoadDataAsync()
+        {
+            RestService restService = new RestService();
+            var result = await restService.Get<RestService>(Urls.GetAllLocations);
         }
 
         //Menu Clicked
