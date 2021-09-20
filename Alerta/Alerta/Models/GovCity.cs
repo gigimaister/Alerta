@@ -1,4 +1,6 @@
-﻿namespace Alerta.Models
+﻿using System.Collections.ObjectModel;
+
+namespace Alerta.Models
 {
     public class Rootobject
     {
@@ -14,7 +16,7 @@
         public string records_format { get; set; }
         public string resource_id { get; set; }
         public object total_estimation_threshold { get; set; }
-        public Record[] records { get; set; }
+        public ObservableCollection<GovCity> records { get; set; }
         public Field[] fields { get; set; }
         public _Links _links { get; set; }
     }
@@ -25,7 +27,7 @@
         public string next { get; set; }
     }
 
-    public class Record
+    public class GovCity
     {
         public int _id { get; set; }
         public string טבלה { get; set; }

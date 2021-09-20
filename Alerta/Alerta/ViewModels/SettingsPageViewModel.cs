@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Alerta.Views;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
 namespace Alerta.ViewModels
@@ -78,9 +79,9 @@ namespace Alerta.ViewModels
         /// Invoked when the edit profile option clicked
         /// </summary>
         /// <param name="obj">The object</param>
-        private void EditProfileClicked(object obj)
+        private async void EditProfileClicked(object obj)
         {
-            // Do something
+            await Application.Current.MainPage.Navigation.PushAsync(new CitiesListPage());
         }
 
         /// <summary>

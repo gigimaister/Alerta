@@ -1,5 +1,4 @@
-﻿using Alerta.Http;
-using Alerta.Models;
+﻿using Alerta.Models;
 using Alerta.Views;
 using System;
 using System.Collections.Generic;
@@ -19,17 +18,9 @@ namespace Alerta
             list.Add("היסטוריה");
             list.Add("בדיקה");
             list.Add("הגדרות");
-            
             listView.ItemsSource = list;
-            
-            LoadDataAsync();
-          
         }
-        async void  LoadDataAsync()
-        {
-            RestService restService = new RestService();
-            var result = await restService.Get<RestService>(Urls.GetAllLocations);
-        }
+      
 
         //Menu Clicked
         void HamburgerButton_Clicked(object sender, EventArgs e)
