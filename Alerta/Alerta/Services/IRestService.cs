@@ -9,6 +9,6 @@ namespace Alerta.Services
 {
     public interface IRestService
     {
-        Task<Result> GetAllCites(string url);
+        Task<Rootobject> GetAllCites(string url);
     }
 }

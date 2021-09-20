@@ -17,7 +17,7 @@ namespace Alerta.Services
         }
 
 
-        public async Task<Result> GetAllCites(string url)
+        public async Task<Rootobject> GetAllCites(string url)
         {
             HttpClient client = new HttpClient();
             var response = await client.GetAsync(url);
@@ -25,7 +25,7 @@ namespace Alerta.Services
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var result = await response.Content.ReadAsStringAsync();
-                var json = JsonConvert.DeserializeObject<Result>(result);
+                var json = JsonConvert.DeserializeObject<Rootobject>(result);
 
                 return json;
             }

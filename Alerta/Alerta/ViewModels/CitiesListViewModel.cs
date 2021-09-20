@@ -32,7 +32,7 @@ namespace Alerta.ViewModels
         public async void GetCites() 
         {
             var rslt = await _rest.GetAllCites(Urls.GetAllLocations);
-            CitesList = rslt.records;
+            CitesList = rslt.result.records;
         }
     }
 }
