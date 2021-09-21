@@ -8,6 +8,7 @@ namespace Alerta.Services
 {
     public class RestService : IRestService
     {
+        #region GET
         public async Task<T> Get<T>(string url)
         {
             HttpClient client = new HttpClient();
@@ -16,10 +17,15 @@ namespace Alerta.Services
             return JsonConvert.DeserializeObject<T>(json);
         }
 
-
+        //GET Gov API Response(Rootobject) Containing Cities List
         public async Task<Rootobject> GetAllCites(string url)
         {
-            HttpClient client = new HttpClient();
+            //For Https req
+            var httpClientHandler = new HttpClientHandler();
+            httpClientHandler.ServerCertificateCustomValidationCallback =
+            (message, cert, chain, errors) => { return true; };
+
+            HttpClient client = new HttpClient(httpClientHandler);
             var response = await client.GetAsync(url);
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -31,5 +37,6 @@ namespace Alerta.Services
             }
             return null;
         }
+        #endregion
     }
 }

@@ -15,7 +15,9 @@ namespace Alerta
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDk5ODgyQDMxMzkyZTMyMmUzMFFiYkxKMnBVNWZPSTl2V2ZDTHl6cEQzLzdNY1E4eEJVSUwrR3dFYlBKZjA9");
+            
             InitializeComponent();     
+            
             DependencyService.Register<IRestService, RestService>();
             MainPage = new NavigationPage(new SplashScreen());
         }
