@@ -1,13 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:Alerta.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:Alerta.ViewModels" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" xmlns:local="clr-namespace:Alerta"
              x:Class="Alerta.Views.CitiesListPage">
     <ContentPage.BindingContext>
         <viewmodel:CitiesListViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-           
+            <combobox:SfComboBox HeightRequest="70" x:Name="comboBox" 
+                                 BackgroundColor="LightSteelBlue"
+                                 DropDownBackgroundColor="LightGray"
+                                 MultiSelectMode="Token"
+                                 DisplayMemberPath="שם_ישוב" DataSource="{Binding CitesList}"
+                                 SelectedIndices="{Binding SelectedIndices}"
+                                 FlowDirection="RightToLeft"
+                                 TokensWrapMode="Wrap"
+                                
+                                >
+                
+                <combobox:SfComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="User.png" WidthRequest="12"/>
+                            <Label Text="{Binding שם_ישוב}" 
+                                   FontSize="Large"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="CenterAndExpand" />
+                        </StackLayout>
+                    </DataTemplate>
+                </combobox:SfComboBox.ItemTemplate>
+            </combobox:SfComboBox>
+            <Button Text="שליחה" Command="{Binding LocationAlertSettingsBtn}"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    CornerRadius="23"
+                    Margin="80,0,80,0"
+                    BackgroundColor="#DF6E57"
+                    VerticalOptions="EndAndExpand"
+                           />
+            <ActivityIndicator IsRunning="true" 
+                               VerticalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

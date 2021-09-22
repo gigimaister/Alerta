@@ -2,6 +2,8 @@
 using Alerta.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Alerta.ViewModels
@@ -9,7 +11,15 @@ namespace Alerta.ViewModels
     public class CitiesListViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        #region Fields
 
+        public ICommand LocationAlertSettingsBtn;
+
+        #endregion
+        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         IRestService _rest = DependencyService.Get<IRestService>();
 
         private ObservableCollection<GovCity> citesList;
@@ -23,9 +33,24 @@ namespace Alerta.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CitesList"));
             }
         }
+
+        private object selectedIndices;
+        public object SelectedIndices
+        {
+            get => selectedIndices;
+            set
+            {
+                selectedIndices = value;
+                NotifyPropertyChanged("SelectedIndices");
+
+            }
+        }
+
+        //Constractor
         public CitiesListViewModel()
         {
             GetCites();
+            LocationAlertSettingsBtn = new Command(D);
         }
 
 
@@ -34,5 +59,10 @@ namespace Alerta.ViewModels
             var rslt = await _rest.GetAllCites(Urls.GetAllLocations);
             CitesList = rslt.result.records;
         }
+        void D()
+        {
+            var e = 0;
+        }
+        
     }
 }
