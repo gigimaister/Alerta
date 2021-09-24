@@ -16,6 +16,7 @@
                                  FlowDirection="RightToLeft"
                                  TokensWrapMode="Wrap"   
                                  EnableSelectionIndicator="True"
+                                 IsEditableMode="true"
                                 >
                 <combobox:SfComboBox.TokenSettings>
                     <combobox:TokenSettings FontSize="16" BackgroundColor="Gray" 
