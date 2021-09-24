@@ -1,9 +1,13 @@
 ﻿using Alerta.Models;
 using Alerta.Services;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Alerta.ViewModels
@@ -62,6 +66,7 @@ namespace Alerta.ViewModels
         //Constractor
         public CitiesListViewModel()
         {
+            GetCurrentLocation();
             IsBusy = true;
             GetCites();
             SetLocationPreferenseCommand = new Command(SetLocationPreferense);
@@ -89,6 +94,40 @@ namespace Alerta.ViewModels
             var e = SelectedIndices;
         }
 
+        #endregion
+
+        #region GeoLocation
+        CancellationTokenSource cts;
+        async Task GetCurrentLocation()
+        {
+            try
+            {
+                var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
+                cts = new CancellationTokenSource();
+                var location = await Geolocation.GetLocationAsync(request, cts.Token);
+
+                if (location != null)
+                {
+                    Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                }
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Handle not supported on device exception
+            }
+            catch (FeatureNotEnabledException fneEx)
+            {
+                // Handle not enabled on device exception
+            }
+            catch (PermissionException pEx)
+            {
+                // Handle permission exception
+            }
+            catch (Exception ex)
+            {
+                // Unable to get location
+            }
+        }
         #endregion
 
     }

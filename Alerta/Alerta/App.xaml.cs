@@ -19,6 +19,7 @@ namespace Alerta
             InitializeComponent();     
             
             DependencyService.Register<IRestService, RestService>();
+            DependencyService.Register<IGeoLocationService, GeoLocationService>();
             MainPage = new NavigationPage(new SplashScreen());
         }
 
