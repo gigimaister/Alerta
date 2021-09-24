@@ -21,8 +21,9 @@ namespace Alerta.Services
 
                 if (location != null)
                 {
-                    LatLonList[0] = location.Latitude;
-                    LatLonList[1] = location.Longitude;
+                    LatLonList.Add(location.Latitude);
+                    LatLonList.Add(location.Longitude);
+
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                     
                 }

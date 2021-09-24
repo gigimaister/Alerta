@@ -1,6 +1,7 @@
 ﻿using Alerta.Models;
 using Alerta.Services;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -23,6 +24,12 @@ namespace Alerta.ViewModels
 
         //For Http Req
         IRestService _rest = DependencyService.Get<IRestService>();
+
+        //For Geo Location Coordinates
+        IGeoLocationService _gps = DependencyService.Get<IGeoLocationService>();
+
+        //Lat Lon Coordinates List
+        public List<double> LatLonCoordinates { private set; get; }
 
         private ObservableCollection<GovCity> citesList;
 
@@ -66,8 +73,8 @@ namespace Alerta.ViewModels
         //Constractor
         public CitiesListViewModel()
         {
-            GetCurrentLocation();
             IsBusy = true;
+            GetCurrentGeoLocation();
             GetCites();
             SetLocationPreferenseCommand = new Command(SetLocationPreferense);
             IsBusy = false;
@@ -81,53 +88,24 @@ namespace Alerta.ViewModels
         #endregion
 
         #region Methods
-        //GET 
+        //GET Cities
         public async void GetCites()
         {
             var rslt = await _rest.GetAllCites(Urls.GetAllLocations);
             CitesList = rslt.result.records;
              CitesList = Methods.SetHebrewParent(CitesList);
         }
+        //GeoLocation Coordinates
+        public async void GetCurrentGeoLocation()
+        {
+            LatLonCoordinates = await _gps.GetCurrentLocation();
+         }
         //Pref Button
         void SetLocationPreferense()
         {
             var e = SelectedIndices;
         }
 
-        #endregion
-
-        #region GeoLocation
-        CancellationTokenSource cts;
-        async Task GetCurrentLocation()
-        {
-            try
-            {
-                var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
-                cts = new CancellationTokenSource();
-                var location = await Geolocation.GetLocationAsync(request, cts.Token);
-
-                if (location != null)
-                {
-                    Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-                }
-            }
-            catch (FeatureNotSupportedException fnsEx)
-            {
-                // Handle not supported on device exception
-            }
-            catch (FeatureNotEnabledException fneEx)
-            {
-                // Handle not enabled on device exception
-            }
-            catch (PermissionException pEx)
-            {
-                // Handle permission exception
-            }
-            catch (Exception ex)
-            {
-                // Unable to get location
-            }
-        }
         #endregion
 
     }
