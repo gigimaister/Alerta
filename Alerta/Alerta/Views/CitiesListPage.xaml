@@ -17,6 +17,11 @@
                                  TokensWrapMode="Wrap"   
                                  EnableSelectionIndicator="True"
                                  IsEditableMode="true"
+                                 NoResultsFoundText="לא נמצאו תוצאות"
+                                 AllowFiltering="true" TextHighlightMode="FirstOccurrence" 
+                                 HighlightedTextColor="Red" HighlightedTextFontAttributes="Bold" 
+                                 SuggestionMode="StartsWith"
+                                 EnableAutoSize="True"
                                 >
                 <combobox:SfComboBox.TokenSettings>
                     <combobox:TokenSettings FontSize="16" BackgroundColor="Gray" 
