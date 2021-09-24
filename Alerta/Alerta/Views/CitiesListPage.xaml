@@ -14,10 +14,16 @@
                                  DisplayMemberPath="שם_ישוב" DataSource="{Binding CitesList}"
                                  SelectedIndices="{Binding SelectedIndices}"
                                  FlowDirection="RightToLeft"
-                                 TokensWrapMode="Wrap"
-                                
+                                 TokensWrapMode="Wrap"   
+                                 EnableSelectionIndicator="True"
                                 >
-                
+                <combobox:SfComboBox.TokenSettings>
+                    <combobox:TokenSettings FontSize="16" BackgroundColor="Gray" 
+                                        TextColor="White" SelectedBackgroundColor="#ffffe0" 
+                                        DeleteButtonColor="Black" IsCloseButtonVisible="true" 
+                                        CornerRadius="15" DeleteButtonPlacement="Left">
+                    </combobox:TokenSettings>
+                </combobox:SfComboBox.TokenSettings>
                 <combobox:SfComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
@@ -25,12 +31,14 @@
                             <Label Text="{Binding שם_ישוב}" 
                                    FontSize="Large"
                                    FontAttributes="Bold"
-                                   HorizontalOptions="CenterAndExpand" />
+                                   HorizontalOptions="CenterAndExpand" 
+                                   FlowDirection="RightToLeft"/>
                         </StackLayout>
                     </DataTemplate>
                 </combobox:SfComboBox.ItemTemplate>
             </combobox:SfComboBox>
-            <Button Text="שליחה" Command="{Binding LocationAlertSettingsBtn}"
+            
+            <Button Text="שמירה" Command="{Binding SetLocationPreferenseCommand}"
                     FontSize="Large"
                     FontAttributes="Bold"
                     CornerRadius="23"
@@ -38,7 +46,7 @@
                     BackgroundColor="#DF6E57"
                     VerticalOptions="EndAndExpand"
                            />
-            <ActivityIndicator IsRunning="true" 
+            <ActivityIndicator IsRunning="{Binding IsBusy}" 
                                VerticalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>

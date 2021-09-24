@@ -40,6 +40,11 @@ namespace Alerta.Models
         public string לשכה { get; set; }
         public int סמל_מועצה_איזורית { get; set; }
         public string שם_מועצה { get; set; }
+
+        public void SetHebrewParent(GovCity govCity)
+        {
+
+        }
     }
 
     public class Field
@@ -47,4 +52,6 @@ namespace Alerta.Models
         public string id { get; set; }
         public string type { get; set; }
     }
+
+   
 }

@@ -10,16 +10,14 @@ namespace Alerta.ViewModels
 {
     public class CitiesListViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+
         #region Fields
 
-        public ICommand LocationAlertSettingsBtn;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        #endregion
-        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public ICommand SetLocationPreferenseCommand { private set; get; }
+
+        //For Http Req
         IRestService _rest = DependencyService.Get<IRestService>();
 
         private ObservableCollection<GovCity> citesList;
@@ -34,6 +32,7 @@ namespace Alerta.ViewModels
             }
         }
 
+        //Contains One Or More City Locations From The ComboBox
         private object selectedIndices;
         public object SelectedIndices
         {
@@ -46,23 +45,51 @@ namespace Alerta.ViewModels
             }
         }
 
+        //Loading Spinner
+        private bool _isBusy;
+
+        public bool IsBusy
+        {
+            get => _isBusy;
+            set { _isBusy = value;
+                NotifyPropertyChanged("IsBusy");
+            }
+        }
+
+
+        #endregion
+
         //Constractor
         public CitiesListViewModel()
         {
+            IsBusy = true;
             GetCites();
-            LocationAlertSettingsBtn = new Command(D);
+            SetLocationPreferenseCommand = new Command(SetLocationPreferense);
+            IsBusy = false;
         }
 
+        #region PropertyChanged
+        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
 
-        public async void GetCites() 
+        #region Methods
+        //GET 
+        public async void GetCites()
         {
             var rslt = await _rest.GetAllCites(Urls.GetAllLocations);
             CitesList = rslt.result.records;
+             CitesList = Methods.SetHebrewParent(CitesList);
         }
-        void D()
+        //Pref Button
+        void SetLocationPreferense()
         {
-            var e = 0;
+            var e = SelectedIndices;
         }
-        
+
+        #endregion
+
     }
 }
