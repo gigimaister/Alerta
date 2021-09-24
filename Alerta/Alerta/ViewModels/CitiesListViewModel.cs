@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace Alerta.ViewModels
         IGeoLocationService _gps = DependencyService.Get<IGeoLocationService>();
 
         //Lat Lon Coordinates List
-        public List<double> LatLonCoordinates { private set; get; }
+        public Dictionary<string, double> LatLonCoordinates { private set; get; }
 
         private ObservableCollection<GovCity> citesList;
 
@@ -99,7 +100,11 @@ namespace Alerta.ViewModels
         public async void GetCurrentGeoLocation()
         {
             LatLonCoordinates = await _gps.GetCurrentLocation();
-         }
+            var placemarks = await Geocoding.GetPlacemarksAsync(LatLonCoordinates
+                .Where(x => x.Key=="Lat").Select(x => x.Value).FirstOrDefault()
+                , LatLonCoordinates.Where(x => x.Key == "Lon").Select(x => x.Value).FirstOrDefault());
+            //Need To Add Try Catch Here!
+        }
         //Pref Button
         void SetLocationPreferense()
         {

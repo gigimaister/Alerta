@@ -7,6 +7,6 @@ namespace Alerta.Services
 {
     public interface IGeoLocationService
     {
-        Task<List<double>> GetCurrentLocation();
+        Task<Dictionary<string,double>> GetCurrentLocation();
     }
 }

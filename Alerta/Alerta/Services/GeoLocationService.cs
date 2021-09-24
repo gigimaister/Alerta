@@ -9,8 +9,9 @@ namespace Alerta.Services
     public class GeoLocationService : IGeoLocationService
     {
         CancellationTokenSource cts;
-        List<double> LatLonList = new List<double>();
-        public async Task<List<double>> GetCurrentLocation()
+
+        Dictionary<string, double> LatLonDict = new Dictionary<string, double>();
+        public async Task<Dictionary<string, double>> GetCurrentLocation()
         {
             try
             {
@@ -21,8 +22,8 @@ namespace Alerta.Services
 
                 if (location != null)
                 {
-                    LatLonList.Add(location.Latitude);
-                    LatLonList.Add(location.Longitude);
+                    LatLonDict.Add("Lat", location.Latitude);
+                    LatLonDict.Add("Lon", location.Longitude);
 
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                     
@@ -46,7 +47,7 @@ namespace Alerta.Services
                 // Unable to get location
             }
 
-            return LatLonList;
+            return LatLonDict;
         }
     }
 }
