@@ -9,4 +9,8 @@
     <None Remove="kaf4r4hj.qlq~" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GProof.Alerta.ExcelHelper\GProof.Alerta.ExcelHelper.csproj" />
+  </ItemGroup>
+
 </Project>

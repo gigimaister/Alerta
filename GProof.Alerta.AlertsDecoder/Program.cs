@@ -10,6 +10,8 @@ namespace GProof.Alerta.AlertsDecoder
             EncodingProvider encodingProvider = CodePagesEncodingProvider.Instance;
             Encoding.RegisterProvider(encodingProvider);
             Console.OutputEncoding = Encoding.GetEncoding("Windows-1255");
+
+            new Executor().Execute();
         }
     }
 }

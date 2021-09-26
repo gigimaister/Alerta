@@ -9,14 +9,14 @@ namespace GProof.Alerta.AlertsDecoder
         public void Execute()
         {
             List<CityData> cities = RetrieveCitiesData();
-
+            ExcelHelper.ExcelHelper.CreateAndSaveExcelFile("Cities.xlsx", "Cities", cities);
         }
 
         private List<CityData> RetrieveCitiesData()
         {
-            throw new NotImplementedException();
+            var dataRetriever = new DataRetriever();
+            List<CityData> cities = dataRetriever.RetrieveCities();
+            return dataRetriever.RetrieveCitiesAlarmData(cities);
         }
-
-
     }
 }

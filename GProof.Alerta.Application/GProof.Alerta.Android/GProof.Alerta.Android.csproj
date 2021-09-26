@@ -109,12 +109,6 @@
     <AndroidResource Include="Resources\drawable\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Alerta\GProof.Alerta.csproj">
-      <Project>{FAE435D6-30AE-424B-B585-379999983940}</Project>
-      <Name>GProof.Alerta</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\hambMenu48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GProof.Alerta\GProof.Alerta.csproj">
+      <Project>{7c0c6dce-e6fc-4cd1-96dc-c73de6fe49f5}</Project>
+      <Name>GProof.Alerta</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
