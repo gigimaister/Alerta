@@ -6,10 +6,6 @@ namespace GProof.Alerta.Server
 {
     public class PikudHaOrefConnector
     {
-        public PikudHaOrefConnector()
-        {
-        }
-
         public string RetrieveAlert()
         {
             try

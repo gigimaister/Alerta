@@ -144,11 +144,11 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Alerta\GProof.Alerta.csproj">
-      <Project>{FAE435D6-30AE-424B-B585-379999983940}</Project>
+    <ProjectReference Include="..\GProof.Alerta\GProof.Alerta.csproj">
+      <Project>{7c0c6dce-e6fc-4cd1-96dc-c73de6fe49f5}</Project>
       <Name>GProof.Alerta</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

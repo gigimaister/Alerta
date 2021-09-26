@@ -1,16 +1,15 @@
-﻿
-using System.IO;
+﻿using System.IO;
 
 namespace GProof.Alerta.Server.Helpers
 {
     public static class FileHelper
     {
-        private const string AlarmsFile = "Alarms.txt";
+        private const string AlertsFile = "Alerts.txt";
 
-        public static void SaveAlarm(string alarmJson)
+        public static void SaveAlarm(string alertJson)
         {
-            using StreamWriter sw = File.AppendText(AlarmsFile);
-            sw.WriteLine(alarmJson);
+            using StreamWriter sw = File.AppendText(AlertsFile);
+            sw.WriteLine(alertJson);
         }
     }
 }
