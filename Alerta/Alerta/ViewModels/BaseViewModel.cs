@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
-namespace Alerta.ViewModels
+namespace GProof.Alerta.ViewModels
 {
     /// <summary>
     /// This viewmodel extends in another viewmodels.

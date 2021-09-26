@@ -1,18 +1,15 @@
-﻿using Alerta.Models;
-using Alerta.Services;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using GProof.Alerta.Models;
+using GProof.Alerta.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace Alerta.ViewModels
+namespace GProof.Alerta.ViewModels
 {
     public class CitiesListViewModel : INotifyPropertyChanged
     {

@@ -3,7 +3,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
-namespace Alerta.Controls
+namespace GProof.Alerta.Controls
 {
     /// <summary>
     /// Customizes the tap animation effects of the grid control.

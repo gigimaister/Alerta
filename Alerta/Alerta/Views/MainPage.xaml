@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
-             x:Class="Alerta.MainPage"  NavigationPage.HasNavigationBar="False">
+             x:Class="GProof.Alerta.Views.MainPage"  NavigationPage.HasNavigationBar="False">
 
     <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
                                          DrawerWidth ="210" Position="Right">

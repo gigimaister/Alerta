@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms.Xaml;
 
-namespace Alerta.Styles
+namespace GProof.Alerta.Styles
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BoxViewStyles

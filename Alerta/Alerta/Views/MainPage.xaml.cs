@@ -1,10 +1,9 @@
-﻿using Alerta.Models;
-using Alerta.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using GProof.Alerta.Models;
 using Xamarin.Forms;
 
-namespace Alerta
+namespace GProof.Alerta.Views
 {
     public partial class MainPage : ContentPage
     {

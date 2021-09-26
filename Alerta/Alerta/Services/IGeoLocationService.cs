@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Alerta.Services
+namespace GProof.Alerta.Services
 {
     public interface IGeoLocationService
     {

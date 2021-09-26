@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ResourceDictionary
-    x:Class="Alerta.Styles.EditorStyles"
+    x:Class="GProof.Alerta.Styles.EditorStyles"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:control="clr-namespace:Alerta.Controls">
+    xmlns:controls="clr-namespace:GProof.Alerta.Controls;assembly=GProof.Alerta">
 
     <!--  Common style borderless editors  -->
-    <Style x:Key="BorderlessEditorStyle" TargetType="control:BorderlessEditor">
+    <Style x:Key="BorderlessEditorStyle" TargetType="controls:BorderlessEditor">
         <Setter Property="TextColor" Value="{DynamicResource Gray-900}" />
         <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         <Setter Property="FontSize" Value="14" />

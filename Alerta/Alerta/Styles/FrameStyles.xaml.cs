@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
-namespace Alerta.Styles
+namespace GProof.Alerta.Styles
 {
     /// <summary>
     /// Class helps to reduce repetitive markup, and allows an apps appearance to be more easily changed.

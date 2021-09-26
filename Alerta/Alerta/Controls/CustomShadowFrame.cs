@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
-namespace Alerta.Controls
+namespace GProof.Alerta.Controls
 {
     /// <summary>
     /// Customizes the shadow effects of the Frame control in iOS to make the shadow effects looks similar to Android.

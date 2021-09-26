@@ -1,4 +1,4 @@
-﻿namespace Alerta.Models
+﻿namespace GProof.Alerta.Models
 {
     public class Alert
     {

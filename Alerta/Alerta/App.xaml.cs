@@ -1,5 +1,5 @@
-using Alerta.Services;
-using Alerta.Views;
+using GProof.Alerta.Services;
+using GProof.Alerta.Views;
 using Xamarin.Forms;
 
 [assembly: ExportFont("Montserrat-Bold.ttf", Alias = "Montserrat-Bold")]
@@ -7,7 +7,7 @@ using Xamarin.Forms;
 [assembly: ExportFont("Montserrat-Regular.ttf", Alias = "Montserrat-Regular")]
 [assembly: ExportFont("Montserrat-SemiBold.ttf", Alias = "Montserrat-SemiBold")]
 [assembly: ExportFont("UIFontIcons.ttf", Alias = "FontIcons")]
-namespace Alerta
+namespace GProof.Alerta
 {
     public partial class App : Application
     {

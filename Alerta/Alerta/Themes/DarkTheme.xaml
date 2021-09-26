@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ResourceDictionary
-    x:Class="Alerta.Themes.DarkTheme"
+    x:Class="GProof.Alerta.Themes.DarkTheme"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:styles="clr-namespace:Alerta.Styles">
+    xmlns:styles="clr-namespace:GProof.Alerta.Styles;assembly=GProof.Alerta">
 
     <ResourceDictionary.MergedDictionaries>
         <styles:ButtonStyles />

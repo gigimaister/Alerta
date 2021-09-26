@@ -1,19 +1,15 @@
-using Syncfusion.SfRating.XForms.iOS;
-using Syncfusion.ListView.XForms.iOS;
-using Syncfusion.XForms.iOS.ComboBox;
-using Syncfusion.XForms.iOS.TextInputLayout;
-using Syncfusion.XForms.iOS.Core;
-using Syncfusion.XForms.iOS.Border;
-using Syncfusion.XForms.iOS.Graphics;
-using Syncfusion.XForms.iOS.Buttons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 using Foundation;
+using Syncfusion.ListView.XForms.iOS;
+using Syncfusion.SfRating.XForms.iOS;
+using Syncfusion.XForms.iOS.Border;
+using Syncfusion.XForms.iOS.Buttons;
+using Syncfusion.XForms.iOS.ComboBox;
+using Syncfusion.XForms.iOS.Core;
+using Syncfusion.XForms.iOS.Graphics;
+using Syncfusion.XForms.iOS.TextInputLayout;
 using UIKit;
 
-namespace Alerta.iOS
+namespace GProof.Alerta.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 

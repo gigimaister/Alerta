@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
-namespace Alerta.Models
+namespace GProof.Alerta.Models
 {
     public static class Methods
     {

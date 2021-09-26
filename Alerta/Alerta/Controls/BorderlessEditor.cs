@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
-namespace Alerta.Controls
+namespace GProof.Alerta.Controls
 {
     /// <summary>
     /// This class is extended from Xamarin.Forms.Editor to extend the size and to remove the border for the editor control in the Android and UWP platforms.

@@ -2,7 +2,7 @@
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
-namespace Alerta.Views
+namespace GProof.Alerta.Views
 {
     /// <summary>
     /// Page to show the setting.

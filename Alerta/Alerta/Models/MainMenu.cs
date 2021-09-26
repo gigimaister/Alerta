@@ -1,4 +1,4 @@
-﻿namespace Alerta.Models
+﻿namespace GProof.Alerta.Models
 {
     //App Main Page Menu
     public enum MainMenu
