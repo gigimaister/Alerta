@@ -1,11 +1,7 @@
-﻿using Alerta.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using GProof.Alerta.Models;
 
-namespace Alerta.Services
+namespace GProof.Alerta.Services
 {
     public interface IRestService
     {

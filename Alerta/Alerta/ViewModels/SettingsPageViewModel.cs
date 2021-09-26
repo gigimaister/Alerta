@@ -1,8 +1,8 @@
-﻿using Alerta.Views;
+﻿using GProof.Alerta.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
-namespace Alerta.ViewModels
+namespace GProof.Alerta.ViewModels
 {
     /// <summary>
     /// ViewModel for Setting page 

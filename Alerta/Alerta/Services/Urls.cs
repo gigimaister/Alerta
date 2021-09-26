@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Alerta.Services
+﻿namespace GProof.Alerta.Services
 {
     public static class Urls
     {

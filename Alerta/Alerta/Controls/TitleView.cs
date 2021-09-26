@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
-namespace Alerta.Controls
+namespace GProof.Alerta.Controls
 {
     /// <summary>
     /// The Title view

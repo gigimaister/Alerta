@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Alerta.Models
+namespace GProof.Alerta.Models
 {
     public class Rootobject
     {

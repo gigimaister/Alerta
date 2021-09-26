@@ -1,10 +1,9 @@
-﻿using Alerta.Models;
-using Newtonsoft.Json;
-using System.Collections.ObjectModel;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
+using GProof.Alerta.Models;
+using Newtonsoft.Json;
 
-namespace Alerta.Services
+namespace GProof.Alerta.Services
 {
     public class RestService : IRestService
     {

@@ -3,7 +3,7 @@ using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
-namespace Alerta.Converters
+namespace GProof.Alerta.Converters
 {
     /// <summary>
     /// This class have methods to convert the DynamicResource to color objects. 
