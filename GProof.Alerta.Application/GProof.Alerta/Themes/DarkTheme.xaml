@@ -48,8 +48,8 @@
     <Color x:Key="Gray-600">#848E9F</Color>
     <Color x:Key="Gray-700">#9BA3B1</Color>
     <Color x:Key="Gray-800">#BDC3CB</Color>
-    <Color x:Key="Gray-900">#EBEDEF</Color>
     <Color x:Key="Gray-Bg">#2F343C</Color>
+    <Color x:Key="Gray-900">#EBEDEF</Color>
     <Color x:Key="Gray-Black">#000000</Color>
     <Color x:Key="Gray-White">#ffffff</Color>
     <Color x:Key="GrayShadowColor">#333942</Color>
