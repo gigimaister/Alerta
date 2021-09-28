@@ -16,7 +16,8 @@ namespace GProof.Alerta.AlertsDecoder
         {
             var dataRetriever = new DataRetriever();
             List<CityData> cities = dataRetriever.RetrieveCities();
-            return dataRetriever.RetrieveCitiesAlarmData(cities);
+            return cities;
+            //return dataRetriever.RetrieveCitiesAlarmData(cities);
         }
     }
 }

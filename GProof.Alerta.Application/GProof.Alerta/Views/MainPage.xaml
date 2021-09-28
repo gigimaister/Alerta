@@ -31,7 +31,7 @@
                       x:Name="contentLabel" 
                       VerticalOptions="Center" 
                       HorizontalOptions="Center" 
-                      Text="רשימה של 10 אזעקות אחרונות" 
+                      Text="רשימה של 11 אזעקות אחרונות" 
                       FontSize="14" 
                       TextColor="Black"/>
             </Grid>
