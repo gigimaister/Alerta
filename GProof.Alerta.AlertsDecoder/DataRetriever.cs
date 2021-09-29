@@ -14,7 +14,7 @@ namespace GProof.Alerta.AlertsDecoder
         {
             //Poplulate pikudCities.json To C# Models.PikudCity
             var cityDatalist = JsonConvert.DeserializeObject<List<CityData>>
-                (File.ReadAllText(@"C:\Users\koni\source\repos\gigimaister\Alerta\GProof.Alerta.AlertsDecoder\Resources\pikudcities.json", Encoding.ASCII));
+                (File.ReadAllText(@"C:\Users\koni\source\repos\gigimaister\Alerta\GProof.Alerta.AlertsDecoder\Resources\pikudcities.json", Encoding.Default));
             return cityDatalist;
         }
 

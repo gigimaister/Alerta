@@ -1,16 +1,34 @@
-﻿namespace GProof.Alerta.AlertsDecoder.Entities
+﻿using Newtonsoft.Json;
+
+namespace GProof.Alerta.AlertsDecoder.Entities
 {
     //Final Object
     public class CityData
     {
-        public string Label { get; set; }
-        public string Value { get; set; }
-        public string Id { get; set; }
-        public string Aareaid { get; set; }
-        public string Mixname { get; set; }
-        public string Color { get; set; }
-        public string Code { get; set; }
-        public string Area { get; set; }
+        [JsonProperty("label")]
+        public string CityName { get; set; }
+
+        [JsonProperty("value")]
+        public string CityValue { get; set; }
+
+        [JsonProperty("id")]
+        public string CityId { get; set; }
+
+        [JsonProperty("areaid")]
+        public string AreaId { get; set; }
+
+        [JsonProperty("mixname")]
+        public string CityFullName { get; set; }
+
+        [JsonProperty("color")]
+        public string AreaAlertColor { get; set; }
+
+        [JsonProperty("code")]
+        public string AreaCode { get; set; }
+
+        [JsonProperty("area")]
+        public string GlobalAreaName { get; set; }
+
         public CityDataNotes  CitydataNotes { get; set; }
     }
     //After Sending GET req To Pikud Hao'ref API With City Id We Get
@@ -23,13 +41,27 @@
 
     public class CityDataNotes
     {
-        public string Code { get; set; }
-        public string Heb_name { get; set; }
-        public string Area_name { get; set; }
-        public int Area_id { get; set; }
-        public string Zone_name { get; set; }
-        public string Zone_name1 { get; set; }
-        public string Time_notes { get; set; }
+        [JsonProperty("code")]
+        public string AreaCode { get; set; }
+
+        [JsonProperty("heb_name")]
+        public string CityName { get; set; }
+
+        [JsonProperty("area")]
+        public string GlobalAreaName { get; set; }
+
+        [JsonProperty("areaid")]
+        public string AreaId { get; set; }
+
+        [JsonProperty("zone_name")]
+        public string AreaRange { get; set; }
+
+        [JsonProperty("zone_name1")]
+        public string AreaRangeSecond { get; set; }
+
+        [JsonProperty("time_notes")]
+        public string TimeForShelterCover { get; set; }
+       
     }
 
     public class City
