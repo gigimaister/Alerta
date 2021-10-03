@@ -10,6 +10,7 @@ namespace GProof.Alerta.AlertsDecoder
         {
             MainAsync().Wait();
         }
+
         public async static Task MainAsync()
         {
             EncodingProvider encodingProvider = CodePagesEncodingProvider.Instance;
