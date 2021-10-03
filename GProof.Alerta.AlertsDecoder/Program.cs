@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace GProof.Alerta.AlertsDecoder
 {
     public static class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
+        {
+            MainAsync().Wait();
+        }
+        public async static Task MainAsync()
         {
             EncodingProvider encodingProvider = CodePagesEncodingProvider.Instance;
             Encoding.RegisterProvider(encodingProvider);
-            Console.OutputEncoding = Encoding.GetEncoding("Windows-1255");
+            Console.OutputEncoding = Constants.HebrewEncoding;
             DataRetriever dataRetriever = new DataRetriever();
 
-            new Executor().Execute();
+            await new Executor().Execute();
+
+            Console.ReadLine();
         }
+
     }
 }

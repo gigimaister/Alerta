@@ -5,7 +5,7 @@ using GProof.Alerta.AlertsDecoder.Entities;
 
 namespace GProof.Alerta.AlertsDecoder
 {
-    internal class Executor
+    internal  class Executor
     {
         public async Task Execute()
         {
@@ -15,9 +15,13 @@ namespace GProof.Alerta.AlertsDecoder
 
         private async Task<List<CityData>> RetrieveCitiesData()
         {
+            Console.WriteLine("[+] Retrieving Cities From Json File");
             var dataRetriever = new DataRetriever();
             List<CityData> cities = dataRetriever.RetrieveCities();
+            Console.WriteLine("[ OK ]\n");
+            Console.WriteLine($"[+] Starting GET Web Request For {cities.Count} Cities");
             await dataRetriever.RetrieveCitiesAlarmData(cities);
+            Console.WriteLine("[ OK ]\n");
             return cities;
         }
     }
