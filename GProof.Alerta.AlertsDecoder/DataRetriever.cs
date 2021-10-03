@@ -4,46 +4,41 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using GProof.Alerta.AlertsDecoder.Entities;
-using GProof.Alerta.AlertsDecoder.Services;
 using Newtonsoft.Json;
 
 namespace GProof.Alerta.AlertsDecoder
 {
     internal class DataRetriever
     {
-       
         public List<CityData> RetrieveCities()
         {
-            string cistiesJson = File.ReadAllText(Constants.CitiesJsonFilePath, Constants.HebrewEncoding);
-            //Poplulate pikudCities.json To C# Models.PikudCity
-            var cityDatalist = JsonConvert.DeserializeObject<List<CityData>>(cistiesJson);
-            // (File.ReadAllText(@"C:\Users\koni\source\repos\gigimaister\Alerta\GProof.Alerta.AlertsDecoder\Resources\pikudcities.json", Encoding.Default));
-
-            return cityDatalist;
+            string citiesJson = File.ReadAllText(Constants.CitiesJsonFilePath, Constants.HebrewEncoding);
+            return JsonConvert.DeserializeObject<List<CityData>>(citiesJson);
         }
-
 
         public async Task RetrieveCitiesAlarmData(List<CityData> cities)
         {
+            int index = 1;
+            int citiesSize = cities.Count;
             //Populate each Navigation Property(CityDataNotes) For Each Object
             foreach (var city in cities)
             {
+                Console.WriteLine($"{index++}/{citiesSize}");
                 try
                 {
-                    string data =  RetrieveCityData(city.CityId);
-                    var cityDataNote = JsonConvert.DeserializeObject<CityDataResponse>(data);
-                    try
-                    {
-                        city.CitydataNotes = cityDataNote.Notes;
+                    string cityData = RetrieveCityData(city.CityId);
 
-                    }
-                    catch(SystemException ex)
+                    if (string.IsNullOrEmpty(cityData?.Trim()))
                     {
-                        Console.WriteLine(ex.Message);
                         continue;
+                    }
+                    CityDataResponse cityResponse = JsonConvert.DeserializeObject<CityDataResponse>(cityData);
+
+                    if (cityResponse != null && cityResponse.Notes != null && cityResponse.Notes.Any())
+                    {
+                        city.Notes = cityResponse.Notes;
                     }
                 }
                 catch (Exception ex)
@@ -51,14 +46,13 @@ namespace GProof.Alerta.AlertsDecoder
                     Console.WriteLine(ex.Message);
                 }
             }   
-             
         }
 
-        public string RetrieveCityData(string cityid)
+        public string RetrieveCityData(string cityId)
         {
             try
             {
-                WebRequest pikodHaOrefClient = GetPikodHaOrefClient(cityid);
+                WebRequest pikodHaOrefClient = GetPikodHaOrefClient(cityId);
                 using Stream s = pikodHaOrefClient.GetResponse().GetResponseStream();
                 using StreamReader sr = new StreamReader(s);
                 return sr.ReadToEnd();
@@ -86,6 +80,7 @@ namespace GProof.Alerta.AlertsDecoder
             webRequest.Headers.Add("User-Agent", "");
             return webRequest;
         }
+
         static async Task<string> GetURI(Uri u)
         {
             var response = string.Empty;

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GProof.Alerta.AlertsDecoder.Entities
 {
@@ -30,7 +31,13 @@ namespace GProof.Alerta.AlertsDecoder.Entities
         [JsonProperty("area")]
         public string GlobalAreaName { get; set; }
 
-        public List<CityDataNotes>  CitydataNotes { get; set; }
+        [JsonIgnore]
+        public string NotesAsString => Notes == null || !Notes.Any()
+            ? ""
+            : $"AreaId: {Notes[0].AreaId} ; AreaCode: {Notes[0].AreaCode} ; AreaRange: {Notes[0].AreaRange}; AreaRangeSecond: {Notes[0].AreaRangeSecond} ; CityName: {Notes[0].CityName} ; GlobalAreaName: {Notes[0].GlobalAreaName} ; TimeForShelterCover: {Notes[0].TimeForShelterCover} ;";
+
+        [JsonProperty("CitydataNotes")]
+        public List<CityDataNotes> Notes { get; set; }
     }
     //After Sending GET req To Pikud Hao'ref API With City Id We Get
     //CityDataResponse(Time To Go The Shelter + More Info)
@@ -62,7 +69,6 @@ namespace GProof.Alerta.AlertsDecoder.Entities
 
         [JsonProperty("time_notes")]
         public string TimeForShelterCover { get; set; }
-       
     }
 
     public class City

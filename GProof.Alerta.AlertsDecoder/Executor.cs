@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using GProof.Alerta.AlertsDecoder.Entities;
 
@@ -10,7 +11,19 @@ namespace GProof.Alerta.AlertsDecoder
         public async Task Execute()
         {
             List<CityData> cities = await RetrieveCitiesData();
-            ExcelHelper.ExcelHelper.CreateAndSaveExcelFile("Cities.xlsx", "Cities", cities);
+            ExcelHelper.ExcelHelper.CreateAndSaveExcelFile("..\\..\\..\\Cities.xlsx", "Cities", cities.Where(city=>city!=null).ToList());
+
+            List<CityDataNotes> citiesDataNotes = cities.Select(city =>
+            {
+                if (city != null && city.Notes != null && city.Notes.Any())
+                {
+                    return city.Notes[0];
+                }
+
+                return null;
+            }).Where(city => city != null).ToList();
+
+            ExcelHelper.ExcelHelper.CreateAndSaveExcelFile("..\\..\\..\\CityDataNotes.xlsx", "Cities", citiesDataNotes);
         }
 
         private async Task<List<CityData>> RetrieveCitiesData()
